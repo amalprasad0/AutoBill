@@ -3,14 +3,14 @@ var InitialCount = -1;
 
 
 const deleteProducts = async() => {
-    url = 'https://automaticbilling.herokuapp.com/product';
+    url = 'http://localhost:3000/product';
 
     let res = await axios.get(url);
     responseText = res.data;
     const products = responseText;
 
     for (let product of products) {
-        const response = await axios.delete(`https://automaticbilling.herokuapp.com/product/${product.id}`)
+        const response = await axios.delete(`http://localhost:3000/product/${product.id}`)
 
     }
     location.reload();
@@ -22,7 +22,7 @@ const deleteProducts = async() => {
 }
 
 const loadProducts = async() => {
-    url = 'https://automaticbilling.herokuapp.com/product';
+    url = 'http://localhost:3000/product';
 
     let res = await axios.get(url);
     responseText = await res.data;
@@ -79,7 +79,7 @@ const loadProducts = async() => {
 var checkout = async() => {
     document.getElementById('2').innerHTML = "<span class='loader-16' style='margin-left: 44%;'></span>"
     var payable = 0;
-    url = 'https://automaticbilling.herokuapp.com/product';
+    url = 'http://localhost:3000/product';
 
     let res = await axios.get(url);
     responseText = await res.data;
